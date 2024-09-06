@@ -17,7 +17,7 @@ public class CentroComunitarioController {
         this.service = service;
     }
 
-    // CREATE
+
     @PostMapping
     public ResponseEntity<CentroComunitario> adicionarCentro(@RequestBody CentroComunitario centro) {
         return ResponseEntity.ok(service.adicionarCentro(centro));
@@ -28,17 +28,17 @@ public class CentroComunitarioController {
         return ResponseEntity.ok(service.listarTodos());
     }
 
-    // READ
+
     @GetMapping("/relatorios/ocupacao")
     public ResponseEntity<List<CentroComunitario>> listarCentrosComOcupacaoMaiorQue(@RequestParam int percentual) {
         return ResponseEntity.ok(service.listarCentrosComOcupacaoMaiorQue(percentual));
     }
 
-    // UPDATE
+
     @PutMapping("/{id}/ocupacao")
     public ResponseEntity<CentroComunitario> atualizarOcupacao(@PathVariable String id, @RequestParam int novaOcupacao) {
         return ResponseEntity.ok(service.atualizarOcupacao(id, novaOcupacao));
     }
 
-    // DELETE
+
 }
